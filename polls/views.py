@@ -11,3 +11,7 @@ def index(request):
         'latest_question_list': latest_question_list,
     }
     return HttpResponse(template.render(context, request))
+
+
+def detail(request, question_id):
+    return HttpResponse("You're looking at question %s." % question_id)
