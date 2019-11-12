@@ -123,3 +123,9 @@ dmypy.json
 .pyre/
 
 .idea/
+
+.vs/
+
+bin/
+
+obj/
