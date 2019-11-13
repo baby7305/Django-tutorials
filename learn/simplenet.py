@@ -8,7 +8,10 @@ from cntk.layers import Dense, Sequential
 
 class Simplenet:
 
-    def generate_random_data(sample_size, feature_dim, num_classes):
+    def __init__(self):
+        pass
+
+    def generate_random_data(self, sample_size, feature_dim, num_classes):
         # Create synthetic data using NumPy.
         Y = np.random.randint(size=(sample_size, 1), low=0, high=num_classes)
 
@@ -21,7 +24,7 @@ class Simplenet:
         Y = np.asarray(np.hstack(class_ind), dtype=np.float32)
         return X, Y
 
-    def ffnet():
+    def ffnet(self):
         inputs = 2
         outputs = 2
         layers = 2
@@ -52,7 +55,7 @@ class Simplenet:
 
         aggregate_loss = 0.0
         for i in range(num_minibatches_to_train):
-            train_features, labels = generate_random_data(
+            train_features, labels = self.generate_random_data(
                 minibatch_size, inputs, outputs)
             # Specify the mapping of input variables in the model to actual minibatch data to be trained with
             trainer.train_minibatch({features: train_features, label: labels})
@@ -61,7 +64,7 @@ class Simplenet:
 
         last_avg_error = aggregate_loss / trainer.total_number_of_samples_seen
 
-        test_features, test_labels = generate_random_data(
+        test_features, test_labels = self.generate_random_data(
             minibatch_size, inputs, outputs)
         avg_error = trainer.test_minibatch(
             {features: test_features, label: test_labels})
