@@ -1,5 +1,11 @@
 from django.http import HttpResponse
+import numpy as np
+
+from learn.simplenet import Simplenet
 
 
 def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    c = Simplenet()
+    np.random.seed(98052)
+    x = c.ffnet()
+    return HttpResponse(x)
